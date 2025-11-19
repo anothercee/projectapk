@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EcoLife Buddy (Web)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>EcoLife Buddy</h1>
+    <p class="subtitle">Utility • Edukasi • Hiburan</p>
+  </header>
+
+  <nav class="tabs">
+    <button data-tab="home" class="active">Home</button>
+    <button data-tab="utility">Utility</button>
+    <button data-tab="edu">Edu</button>
+    <button data-tab="fun">Fun</button>
+  </nav>
+
+  <main class="container">
+    <!-- HOME -->
+    <section id="home" class="tabcontent">
+      <div class="card">
+        <h2>Selamat datang!</h2>
+        <p>EcoLife Buddy membantu kebiasaan ramah lingkungan, memberi tips singkat, dan kuis menyenangkan.</p>
+      </div>
+
+      <div class="card quick-actions">
+        <button id="goHabit">Buka Habit Tracker</button>
+        <button id="goCalculator">Buka Carbon Calculator</button>
+        <button id="goQuiz">Mulai Eco Quiz</button>
+      </div>
+
+      <div class="card">
+        <h3>Tip hari ini</h3>
+        <p id="dailyTip">Memuat...</p>
+      </div>
+    </section>
+
+    <!-- UTILITY -->
+    <section id="utility" class="tabcontent hidden">
+      <div class="card">
+        <h2>Habit Tracker</h2>
+        <p>Centang saat kamu melakukan kebiasaan ramah lingkungan hari ini.</p>
+
+        <ul id="habitList" class="habit-list"></ul>
+
+        <div class="add-row">
+          <input id="newHabit" placeholder="Tambah kebiasaan (mis. Bawa tumbler)" />
+          <button id="addHabitBtn">Tambah</button>
+        </div>
+
+        <div class="status">
+          <p>Progress: <span id="habitProgress">0/0</span></p>
+          <progress id="habitProgressBar" value="0" max="1"></progress>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Carbon Calculator (sederhana)</h2>
+        <div class="grid">
+          <label>Jam AC per hari:<input id="acHours" type="number" min="0" value="1" /></label>
+          <label>Perjalanan motor per hari (kali):<input id="motorTrips" type="number" min="0" value="0" /></label>
+          <label>Botol/plastik sekali pakai per hari:<input id="plasticCount" type="number" min="0" value="1" /></label>
+        </div>
+        <button id="calcBtn">Hitung Jejak Karbon</button>
+        <p>Skor karbon: <strong id="carbonScore">-</strong></p>
+        <p id="carbonAdvice"></p>
+      </div>
+    </section>
+
+    <!-- EDU -->
+    <section id="edu" class="tabcontent hidden">
+      <div class="card">
+        <h2>Fakta & Tips</h2>
+        <div id="factsArea"></div>
+      </div>
+
+      <div class="card">
+        <h2>Artikel Mini</h2>
+        <p id="miniArticle">Mengambil tindakan kecil setiap hari dapat berdampak besar pada lingkungan. Mulailah dari kebiasaan sederhana: membawa tumbler, mematikan lampu yang tidak digunakan, dan memilah sampah. Konsistensi adalah kunci.</p>
+      </div>
+    </section>
+
+    <!-- FUN -->
+    <section id="fun" class="tabcontent hidden">
+      <div class="card">
+        <h2>Eco Quiz</h2>
+        <div id="quizArea">
+          <p id="quizQuestion">Klik "Mulai Quiz" untuk memulai.</p>
+          <div id="quizOptions"></div>
+          <div class="quiz-actions">
+            <button id="startQuizBtn">Mulai Quiz</button>
+            <button id="nextQBtn" class="hidden">Next</button>
+          </div>
+          <p id="quizResult" class="result"></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Weekly Challenge</h2>
+        <ul id="challenges">
+          <li><label><input type="checkbox" data-ch="noPlasticDay"> Tidak menggunakan plastik sehari</label></li>
+          <li><label><input type="checkbox" data-ch="reuse"> Gunakan kembali botol/tempat makan</label></li>
+          <li><label><input type="checkbox" data-ch="saveEnergy"> Matikan perangkat elektronik jika tidak dipakai</label></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Badges</h2>
+        <div id="badgesArea">Belum ada badge — selesaikan habit/quiz untuk mendapatkan badge.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>EcoLife Buddy • Demo Web • LocalStorage untuk penyimpanan</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
