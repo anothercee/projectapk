@@ -1,0 +1,75 @@
+:root{
+  --green-1: #2E7D32;
+  --green-2: #A3D9A5;
+  --bg: #FAFBF9;
+  --card: #FFFFFF;
+  --muted: #6b6b6b;
+  --radius: 12px;
+  --pad: 16px;
+  --maxwidth: 900px;
+  font-family: Inter, Roboto, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:#1b1b1b;
+  display:flex;
+  min-height:100vh;
+  flex-direction:column;
+  align-items:center;
+}
+
+.topbar{
+  width:100%;
+  max-width:var(--maxwidth);
+  padding:24px var(--pad);
+}
+.topbar h1{margin:0;color:var(--green-1)}
+.subtitle{margin:4px 0 0;color:var(--muted)}
+
+.container{
+  width:100%;
+  max-width:var(--maxwidth);
+  padding:0 var(--pad) 40px;
+}
+
+.tabs{
+  display:flex;
+  gap:8px;
+  width:100%;
+  max-width:var(--maxwidth);
+  padding:0 var(--pad) 12px;
+}
+.tabs button{
+  background:transparent;border:1px solid transparent;padding:8px 12px;border-radius:10px;cursor:pointer;
+}
+.tabs button.active{background:var(--green-2);border-color:var(--green-1)}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:16px;
+  margin-bottom:12px;
+  box-shadow:0 2px 6px rgba(20,20,20,0.06);
+}
+
+.hidden{display:none}
+.habit-list{list-style:none;padding:0;margin:10px 0}
+.habit-list li{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px dashed #eee}
+.add-row{display:flex;gap:8px;margin-top:8px}
+.add-row input{flex:1;padding:8px;border-radius:8px;border:1px solid #ddd}
+.add-row button{padding:8px 12px;border-radius:8px;background:var(--green-1);color:white;border:none;cursor:pointer}
+
+.grid{display:grid;grid-template-columns:repeat(1,1fr);gap:8px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(3,1fr)}}
+
+.quick-actions button{margin-right:8px;padding:10px 14px;border-radius:8px;border:none;background:var(--green-1);color:#fff;cursor:pointer}
+
+.quiz-actions{margin-top:8px}
+#quizOptions button{display:block;margin:8px 0;padding:10px;border-radius:8px;border:1px solid #eee;background:#fafafa;cursor:pointer;width:100%;text-align:left}
+#quizOptions button.correct{border-color:green;background:#e8f5e9}
+#quizOptions button.wrong{border-color:crimson;background:#fff0f0}
+
+footer.footer{width:100%;max-width:var(--maxwidth);padding:12px var(--pad);color:var(--muted);text-align:center;font-size:13px}
